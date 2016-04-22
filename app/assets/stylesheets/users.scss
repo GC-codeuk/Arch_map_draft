@@ -1,0 +1,31 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.marker_container {
+	border: 0px solid black;
+    margin-top: 8px;
+    background-color:rgba(20, 160, 146, 0.7);
+    color:#FFF;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 12px;
+    padding: 0;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 5px;
+    -webkit-box-shadow: 5px 5px 5px #ccc;
+    box-shadow: 5px 5px 5px #999;
+    overflow: auto;
+}
+
+.marker_container #infobox-text {
+	display: block;
+	float: left;
+	padding: 5px 0px 0 15px;
+}
+
+.marker_container h3 {
+	font-weight: bold;
+	font-size: 16px;
+}
