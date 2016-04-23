@@ -25,5 +25,15 @@
   <%= @user.title %>
 </p>
 
+<p>
+  <strong>Type:</strong>
+  <%= @user.typ %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <img src="<%= @user.img_link %>">
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
