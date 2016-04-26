@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class Plot < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode
 end

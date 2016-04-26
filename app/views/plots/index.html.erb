@@ -8,7 +8,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Users</h1>
+<h1>Listing Plots</h1>
 
 <table>
   <thead>
@@ -25,18 +25,18 @@
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
+    <% @plots.each do |plot| %>
       <tr>
-        <td><%= user.latitude %></td>
-        <td><%= user.longitude %></td>
-        <td><%= user.address %></td>
-        <td><%= user.description %></td>
-        <td><%= user.title %></td>
-        <td><%= user.typ %></td>
-        <td><%= user.img_link %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= plot.latitude %></td>
+        <td><%= plot.longitude %></td>
+        <td><%= plot.address %></td>
+        <td><%= plot.description %></td>
+        <td><%= plot.title %></td>
+        <td><%= plot.typ %></td>
+        <td><%= plot.img_link %></td>
+        <td><%= link_to 'Show', plot %></td>
+        <td><%= link_to 'Edit', edit_plot_path(plot) %></td>
+        <td><%= link_to 'Destroy', plot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -44,7 +44,7 @@
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'New Plot', new_plot_path %>
 
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>

@@ -2,38 +2,38 @@
 
 <p>
   <strong>Latitude:</strong>
-  <%= @user.latitude %>
+  <%= @plot.latitude %>
 </p>
 
 <p>
   <strong>Longitude:</strong>
-  <%= @user.longitude %>
+  <%= @plot.longitude %>
 </p>
 
 <p>
   <strong>Address:</strong>
-  <%= @user.address %>
+  <%= @plot.address %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @user.description %>
+  <%= @plot.description %>
 </p>
 
 <p>
   <strong>Title:</strong>
-  <%= @user.title %>
+  <%= @plot.title %>
 </p>
 
 <p>
   <strong>Type:</strong>
-  <%= @user.typ %>
+  <%= @plot.typ %>
 </p>
 
 <p>
   <strong>Image:</strong>
-  <img src="<%= @user.img_link %>">
+  <img src="<%= @plot.img_link %>">
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_plot_path(@plot) %> |
+<%= link_to 'Back', plots_path %>
