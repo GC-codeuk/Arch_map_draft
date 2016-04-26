@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       marker.title user.title
       marker.infowindow render_to_string(:partial => "/users/infobox.html.erb", :locals => { :user => user})
       marker.picture({
-       "url" => "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
+       "url" => "https://db.tt/NVbNtQhV",
        "width" =>  32,
        "height" => 32})
       marker.json({ title: user.title })
