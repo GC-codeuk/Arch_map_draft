@@ -26,26 +26,34 @@ html, body {
     -webkit-box-shadow: 5px 5px 5px #ccc;
     box-shadow: 5px 5px 5px #999;
     overflow: auto;
-    max-height: 120px;
+    height: 100px;
+    width: 300px;
 }
 
 #infobox-img {
-    max-height: 100%;
-    max-width: 100%;
+    float: left;
 }
 
 .marker_container #infobox img {
-    max-width: 170px;
-    float: left;
+    height: 100px;
+    width: 120px;
+    object-fit: cover;
 }
 
 .marker_container #infobox-text {
 	display: block;
 	float: left;
 	padding: 5px 0px 0 15px;
+    width: 165px;
 }
 
 .marker_container h3 {
 	font-weight: bold;
 	font-size: 16px;
+    margin: 8px 0 2px 0;
+}
+
+.marker_container p {
+    font-size: 10px;
+    margin: 0 0 4px 0;
 }

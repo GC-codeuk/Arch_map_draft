@@ -25,10 +25,10 @@ InfoBoxBuilder = (function(superClass) {
       content: boxText,
       pixelOffset: new google.maps.Size(-150, 0),
       disableAutoPan: true,
-      maxWidth: 400,
+      //maxWidth: 250,
       zIndex: null,
       boxStyle: {
-        width: "400px",
+        //width: "250px",
         background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif') no-repeat"
       },
       infoBoxClearance: new google.maps.Size(1, 1),
@@ -57,7 +57,8 @@ this.buildMap = function(markers) {
       styles: styles
     },
     internal: {
-      id: 'map'
+      id: 'map',
+      //disableAutoPanTo: true
     }
   }, 
   function() {
