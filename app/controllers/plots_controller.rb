@@ -19,6 +19,21 @@ class PlotsController < ApplicationController
     end
   end
 
+  def map
+    @plots = Plot.all
+    @hash = Gmaps4rails.build_markers(@plots) do |plot, marker|
+      marker.lat plot.latitude
+      marker.lng plot.longitude
+      marker.title plot.title
+      marker.infowindow render_to_string(:partial => "/plots/infobox.html.erb", :locals => { :plot => plot})
+      marker.picture({
+       "url" => "https://db.tt/NVbNtQhV",
+       "width" =>  32,
+       "height" => 32})
+      marker.json({ title: plot.title })
+    end
+  end
+
 
   # GET /plots/1
   # GET /plots/1.json
@@ -82,6 +97,6 @@ class PlotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plot_params
-      params.require(:plot).permit(:latitude, :longitude, :address, :description, :title, :typ, :img_link)
+      params.require(:plot).permit(:latitude, :longitude, :address, :description, :title, :typ, :img_link, :architect_id)
     end
 end

@@ -3,10 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 html, body {
-    padding: 0;
+    height: 100%;
     margin: 0;
+    padding: 0;
 }
 
+#map {
+    height: 100%;
+}
 
 .marker_container #infobox {
 	border: 0px solid black;

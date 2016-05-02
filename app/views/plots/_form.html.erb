@@ -19,25 +19,30 @@
     <%= f.label :longitude %><br>
     <%= f.text_field :longitude %>
   </div>
+    <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, size: "50" %>
+  </div>
   <div class="field">
     <%= f.label :address %><br>
-    <%= f.text_field :address %>
+    <%= f.text_field :address, size: "50" %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_area :description, size: "50x10" %>
   </div>
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.label :architect %><br>
+    <%= f.collection_select :architect_id, Architect.order('name ASC'), :id, :name %>
   </div>
+  <%= link_to 'New Architect', new_architect_path %>
   <div class="field">
     <%= f.label :type %><br>
     <%= f.text_field :typ %>
   </div>
   <div class="field">
     <%= f.label :image %><br>
-    <%= f.text_field :img_link %>
+    <%= f.text_field :img_link, size: "100" %>
   </div>
   <div class="actions">
     <%= f.submit %>

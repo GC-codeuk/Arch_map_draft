@@ -1,0 +1,23 @@
+<h1>Listing Architects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Architect</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @architects.each do |architect| %>
+      <tr>
+        <td><%= architect.name %></td>
+        <td><%= link_to 'Show', architect %></td>
+        <td><%= link_to 'Edit', edit_architect_path(architect) %></td>
+        <td><%= link_to 'Destroy', architect, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Back', plots_path %>
