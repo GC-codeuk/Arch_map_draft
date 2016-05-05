@@ -11,7 +11,6 @@ default: &default
 
 development:
   <<: *default
-  adapter: postgresql
   database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
@@ -23,4 +22,5 @@ test:
 
 production:
   <<: *default
+  adapter: postgresql
   database: db/production.sqlite3
