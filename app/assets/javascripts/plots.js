@@ -51,6 +51,7 @@ this.buildMap = function(markers) {
     provider: {
       disableDefaultUI: true,
       zoomControl: true,
+      clickableIcons: false,
       //center_on_plot: true,
       //auto_zoom: false,
       //zoom : 10, 
