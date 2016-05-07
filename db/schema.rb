@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160427193655) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "architects", force: :cascade do |t|
     t.string   "name"
     t.string   "country"
@@ -33,6 +36,7 @@ ActiveRecord::Schema.define(version: 20160427193655) do
     t.integer  "architect_id"
   end
 
-  add_index "plots", ["architect_id"], name: "index_plots_on_architect_id"
+  add_index "plots", ["architect_id"], name: "index_plots_on_architect_id", using: :btree
 
+  add_foreign_key "plots", "architects"
 end
