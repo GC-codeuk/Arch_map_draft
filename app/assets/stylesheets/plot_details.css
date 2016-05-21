@@ -1,0 +1,52 @@
+/* menu */
+
+.icon-menu {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    cursor: pointer;
+}
+
+.icon-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+}
+
+#plotdetails li a, #menu li a {
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+#plotdetails, #menu {
+    padding: 0px;
+    display: inline;
+    background-color:rgba(20, 160, 146, 1);
+    float: left;
+    width: 400px;
+    color: #fff;
+    z-index: 5;
+    position: fixed;
+    left: -430px;
+    height: 100%;
+    -webkit-box-shadow:  -5px 0px 4px 0px rgba(0, 0, 0, 0.2);
+        moz-box-shadow:  -5px 0px 4px 0px rgba(0, 0, 0, 0.2);
+          o-box-shadow:  -5px 0px 4px 0px rgba(0, 0, 0, 0.2);
+            box-shadow:  -5px 0px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+#plotdetails li, #menu li {
+    list-style-type: none;
+}
+
+#plotdetails #plot-img img{
+    width: 400px;
+}
+
+#details-text {
+    padding: 0 20px 0 20px;
+}

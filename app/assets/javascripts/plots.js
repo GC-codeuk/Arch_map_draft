@@ -17,6 +17,19 @@ InfoBoxBuilder = (function(superClass) {
     boxText = document.createElement("div");
     boxText.setAttribute('class', 'marker_container');
     boxText.innerHTML = this.args.infowindow;
+    // Render plot details partial with plot and animate to show
+    $(boxText).on('click', function() {
+        $.ajax({
+          url: "/plots/" + $('#plot_id').val() + "/plotdetails",
+          format: 'js',
+          data: {
+            id: $('#plot_id').val()
+          },
+          success: function(plot){
+          alert('foo' + id);
+        }}); 
+        $('#plotdetails').animate({left: 0}, 'slow');
+    });
     return this.infowindow = new InfoBox(this.infobox(boxText));
   };
 
@@ -27,6 +40,8 @@ InfoBoxBuilder = (function(superClass) {
       disableAutoPan: true,
       //maxWidth: 250,
       zIndex: null,
+      pane: "floatPane",
+      enableEventPropagation: false,
       boxStyle: {
         //width: "250px",
         background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif') no-repeat"
@@ -38,7 +53,46 @@ InfoBoxBuilder = (function(superClass) {
 
   return InfoBoxBuilder;
 
-})(Gmaps.Google.Builders.Marker);
+})
+
+(Gmaps.Google.Builders.Marker);
+
+// Map style array settings
+var styles = [
+// Hue of map setting
+  {
+    stylers: [
+      { hue: "#00ffe6" },
+      { saturation: -20 }
+    ]
+  },
+ // Simplify road features
+  {
+    featureType: "road",
+    elementType: "geometry",
+    stylers: [
+      { lightness: 100 },
+      { visibility: "simplified" }
+    ]
+  },
+  // Remove street names
+  {
+    featureType: "road",
+    elementType: "labels",
+    stylers: [
+      { visibility: "off" }
+    ]
+  },
+  {
+  "featureType": "water",
+  "stylers": [
+    { "saturation": -6 },
+    { "lightness": -74 },
+    { "color": "#2580cb" }
+  ]
+  },     
+];
+
 
 
 this.buildMap = function(markers) {
@@ -54,8 +108,8 @@ this.buildMap = function(markers) {
       clickableIcons: false,
       //center_on_plot: true,
       //auto_zoom: false,
-      //zoom : 10, 
-      styles: styles
+      //zoom : 10,
+      styles: styles,
     },
     internal: {
       id: 'map',
@@ -67,8 +121,54 @@ this.buildMap = function(markers) {
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
     handler.getMap().setZoom(12);
+
+    //Close infowindow on click anywhere on page
     google.maps.event.addListener(handler.getMap(), 'click', function() {
       handler.currentInfowindow().close();
+      $('#plotdetails').animate({left: -430}, 'slow')
     });
+
+
+    
+    // Change map style based on zoom level
+    /*var mapStyleZoomedOut = [
+      { 
+        featureType: "road",
+        elementType: "labels",
+        stylers: [
+          { visibility: "off" }
+        ] 
+      }]; 
+    var mapStyleZoomedIn = [
+      { 
+        featureType: "road",
+        elementType: "labels",
+        stylers: [
+          { visibility: "on" }
+        ] 
+      }];
+
+    var styledMapOptions = {map: handler, name: 'minimial'}; 
+    var styledMapOptions2 = {map: handler, name: 'maximial'}; 
+
+    var sMapType = new google.maps.StyledMapType(mapStyleZoomedOut,styledMapOptions); 
+    handler.mapTypes.set('minimial', sMapType); 
+    handler.setMapTypeId('minimial'); 
+
+    var sMapType2 = new google.maps.StyledMapType(mapStyleZoomedIn,styledMapOptions2); 
+    handler.mapTypes.set('maximial', sMapType2);
+
+    google.maps.event.addListener(handler.getMap(), 'zoom_changed', function() { 
+      var zoomLevel = handler.getZoom();
+        alert(zoomLevel+', '+handler.getMapTypeId());
+      var sMapType;
+      // === IF Zoom Level <= 8 use mapStyleZoomedIn 
+      if(zoomLevel <=14)
+        handler.setMapTypeId('minimial');
+      // === If Zoom Level > 8 use mapStyleZoomedOut 
+      else
+        handler.setMapTypeId('maximial'); 
+    });*/
+
   });
 };

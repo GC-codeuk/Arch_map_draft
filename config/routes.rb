@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  resources :plots
-  resources :architects
   root 'plots#map'
+  resources :architects
+  resources :plots do
+    get :plotdetails, :on => :member
+  end
+
+  #resources :plots 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

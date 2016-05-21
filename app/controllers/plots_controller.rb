@@ -89,6 +89,14 @@ class PlotsController < ApplicationController
     end
   end
 
+  # GET /plots/1/plotdetails
+  def plotdetails
+    @plot = Plot.find(params[:id])
+    respond_to do |format|
+      format.js { render :layout => false }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_plot
