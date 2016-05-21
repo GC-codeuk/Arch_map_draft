@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 gem 'responders', '~> 2.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
 gem 'pg'
 gem 'sinatra', '>= 1.4.4'
 gem "tilt", '~>1.4.1'
