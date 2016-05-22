@@ -24,12 +24,16 @@ InfoBoxBuilder = (function(superClass) {
           format: 'js',
           data: {
             id: $('#plot_id').val()
-          },
-          success: function(plot){
-          alert('foo' + id);
-        }}); 
-        $('#plotdetails').animate({left: 0}, 'slow');
-        $('#map').width(function(index,width){ return width - 200; });
+          }
+        });
+    
+        if ( $('#plotdetails').hasClass( "hidden" ) ) {
+ 
+        $('#plotdetails').animate({left: 0}, 450).toggleClass( "hidden" );
+        $('#map').animate({ width: $('#map').width() - 215 }, 500); // Shift map so infoxbox not hidden by plotdetails
+ 
+    };
+        
     });
     return this.infowindow = new InfoBox(this.infobox(boxText));
   };
@@ -126,7 +130,10 @@ this.buildMap = function(markers) {
     //Close infowindow on click anywhere on page
     google.maps.event.addListener(handler.getMap(), 'click', function() {
       handler.currentInfowindow().close();
-      $('#plotdetails').animate({left: -430}, 'slow')
+      if (!$('#plotdetails').hasClass("hidden")) {
+        $('#map').animate({ width: $('#map').width() + 215 }, 450);
+        $('#plotdetails').animate({left: - 430}, 500).toggleClass( "hidden" );
+      };
     });
 
 
