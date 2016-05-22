@@ -29,6 +29,7 @@ InfoBoxBuilder = (function(superClass) {
           alert('foo' + id);
         }}); 
         $('#plotdetails').animate({left: 0}, 'slow');
+        $('#map').width(function(index,width){ return width - 200; });
     });
     return this.infowindow = new InfoBox(this.infobox(boxText));
   };
