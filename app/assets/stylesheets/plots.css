@@ -13,10 +13,12 @@ html, body {
     background-position: right;
     width: 100%;
     position: absolute;
+}
+
+.fix-right-top {
     top: 0;
     right: 0;
 }
-
 
 
 .marker_container #infobox {
