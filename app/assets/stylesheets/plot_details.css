@@ -50,20 +50,15 @@
 
 #details-text {
     padding: 0 20px 0 20px;
-    height: 100%;
+    height: calc(100% - 300px);
+    overflow-y: scroll;
 }
 
 #details-text p {
-    font-family: 'Josefin Sans', sans-serif;
-}
-
-
-.scroll {
-
+   /* font-family: 'Josefin Sans', sans-serif; */
 }
 
 @media (max-width: 620px) {
     #plotdetails, #menu  {width: 100%;}
-    #plotdetails #plot-img img{width: 100%;
-}
+    #plotdetails #plot-img img{width: 100%;}
 }
