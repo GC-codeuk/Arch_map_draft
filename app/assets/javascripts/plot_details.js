@@ -12,7 +12,9 @@ $(document).ready(function() {
   });
 
   /*$('.icon-close').click(function() {
-    	$('#plotdetails').animate({left: -380}, 'slow')
+  	  alert('hello');
+      $('#map').animate({ width: $('#map').width() + 215 }, 450);
+      $('#plotdetails').animate({left: - 430}, 500).toggleClass( "hidden" );
   });*/
 
  });

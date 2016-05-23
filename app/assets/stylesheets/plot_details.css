@@ -64,4 +64,6 @@
 
 @media (max-width: 620px) {
     #plotdetails, #menu  {width: 100%;}
+    #plotdetails #plot-img img{width: 100%;
+}
 }
