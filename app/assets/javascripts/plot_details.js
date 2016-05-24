@@ -11,6 +11,8 @@ $(document).ready(function() {
       $('#plotdetails').animate({left: - 430}, 500).toggleClass( "hidden" );
   });
 
+
+
   /*$('.icon-close').click(function() {
   	  alert('hello');
       $('#map').animate({ width: $('#map').width() + 215 }, 450);

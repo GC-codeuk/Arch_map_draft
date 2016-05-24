@@ -13,9 +13,11 @@ html, body {
     background-position: right;
     width: 100%;
     position: absolute;
+    float: right;
 }
 
-.fix-right-top {
+/*Used to keep main map at top right. Not required on other maps such as /plots */
+.fix-right-top { 
     top: 0;
     right: 0;
 }

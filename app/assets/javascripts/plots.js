@@ -9,6 +9,7 @@ InfoBoxBuilder = (function(superClass) {
     return InfoBoxBuilder.__super__.constructor.apply(this, arguments);
   }
 
+
   InfoBoxBuilder.prototype.create_infowindow = function() {
     var boxText;
     if (!_.isString(this.args.infowindow)) {
@@ -27,16 +28,16 @@ InfoBoxBuilder = (function(superClass) {
           }
         });
     
-        if ( $('#plotdetails').hasClass( "hidden" ) ) {
- 
-        $('#plotdetails').animate({left: 0}, 450).toggleClass( "hidden" );
-        $('#map').animate({ width: $('#map').width() - 215 }, 500); // Shift map so infoxbox not hidden by plotdetails
- 
-    };
+        if ( $('#plotdetails').hasClass( "hidden" ) ) {   
+          $('#plotdetails').animate({left: 0}, 450).toggleClass( "hidden" );
+          $('#map').animate({ width: $(window).width() - 215 }, 550); // Shift map so infoxbox not hidden by plotdetails
+        };
         
     });
     return this.infowindow = new InfoBox(this.infobox(boxText));
   };
+
+
 
   InfoBoxBuilder.prototype.infobox = function(boxText) {
     return {
@@ -127,15 +128,30 @@ this.buildMap = function(markers) {
     handler.fitMapToBounds();
     handler.getMap().setZoom(12);
 
-    //Close infowindow on click anywhere on page
+    //Close infowindow on click anywhere on map
     google.maps.event.addListener(handler.getMap(), 'click', function() {
       handler.currentInfowindow().close();
       if (!$('#plotdetails').hasClass("hidden")) {
-        $('#map').animate({ width: $('#map').width() + 215 }, 450);
-        $('#plotdetails').animate({left: - 430}, 500).toggleClass( "hidden" );
+        $('#map').animate({ width: $(window).width() }, 450, function() {
+            /* Resize as per Google API documentation following programatic resize of map div*/
+            google.maps.event.trigger(handler.getMap(), 'resize'); 
+            $("#map").css("width", "100%");
+        });
+        $('#plotdetails').animate({left: - 620}, 550).toggleClass( "hidden" );
       };
     });
 
+
+    /* Resize map div when window is resized at the same time as plot details shown. Prevents
+    unwanted white space*/
+    
+    $(window).resize(function(){
+      if (!$('#plotdetails').hasClass("hidden")) {
+        $('#map').width($(window).width() - 215);
+        /* Resize as per Google API documentation following programatic resize of map div*/
+        google.maps.event.trigger(handler.getMap(), 'resize');
+      };
+    });
 
     
     // Change map style based on zoom level
