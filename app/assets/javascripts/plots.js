@@ -128,21 +128,31 @@ this.buildMap = function(markers) {
     handler.fitMapToBounds();
     handler.getMap().setZoom(12);
 
-    //Close infowindow on click anywhere on map
-    google.maps.event.addListener(handler.getMap(), 'click', function() {
-      handler.currentInfowindow().close();
+    //Function to hide plot details and resize map to full screen
+    function hidePlotDetails() {
       if (!$('#plotdetails').hasClass("hidden")) {
         $('#map').animate({ width: $(window).width() }, 450, function() {
-            /* Resize as per Google API documentation following programatic resize of map div*/
+            /* Run map resize as per Google API documentation following programatic resize of map div*/
             google.maps.event.trigger(handler.getMap(), 'resize'); 
             $("#map").css("width", "100%");
         });
         $('#plotdetails').animate({left: - 620}, 550).toggleClass( "hidden" );
       };
+    };
+
+    //Close infowindow on click anywhere on map and hide plot details
+    google.maps.event.addListener(handler.getMap(), 'click', function() {
+      handler.currentInfowindow().close();
+      hidePlotDetails();
+    });
+
+    //Hide plot details div using swipe action on touchscreen
+    $("#plotdetails").on("swipeleft",function(){
+      hidePlotDetails();
     });
 
 
-    /* Resize map div when window is resized at the same time as plot details shown. Prevents
+    /* Resize map div when window is resized and plot details are shown. Prevents
     unwanted white space*/
     
     $(window).resize(function(){
