@@ -23,8 +23,9 @@
 }
 
 #plotdetails, #menu {
+    display: flex;
+    flex-direction: column;
     padding: 0px;
-    display: inline;
     background-color:rgba(20, 160, 146, 1);
     font-family: 'Josefin Sans', sans-serif;
     float: left;
@@ -50,7 +51,7 @@
 
 #details-text {
     padding: 0 20px 0 20px;
-    height: calc(100% - 300px);
+    flex: 1;
     overflow-y: scroll;
 }
 
