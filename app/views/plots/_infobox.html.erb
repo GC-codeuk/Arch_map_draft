@@ -4,11 +4,11 @@
         <img src="<%= plot.img_link %>">
       </div>
       <div id="infobox-text">
-        <%= hidden_field_tag('plot_id', plot.id) %>
+        <!-- plot_id used for AJAX call when rendering plot details partial-->
+        <%= hidden_field_tag('plot_id', plot.id) %> 
         <h3><%= plot.title %></h3>
-        <p>Architect: <%= plot.architect.name %></p>
-        <p><%= plot.address %></p>
-        <p>More details ></p>
+        <p><%= plot.architect.name %></p>
+        <p id="details-link">More details ></p>
       </div>
   </div>
 

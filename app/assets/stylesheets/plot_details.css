@@ -14,6 +14,8 @@
     cursor: pointer;
 }
 
+/*Plot Details Partial */
+
 #plotdetails, #menu {
     display: flex;
     flex-direction: column;
@@ -39,15 +41,23 @@
 }
 
 #details-text {
-    padding: 0 20px 0 20px;
+    padding: 10px 20px 0 20px;
     flex: 1;
     overflow-y: scroll;
 }
 
 #details-text p {
-   /* font-family: 'Josefin Sans', sans-serif; */
+   font-family: 'Josefin Sans', sans-serif;
 }
 
+#address img {
+    height: 20px;
+}
+
+#address p {
+    display: inline;
+    padding-left: 10px;
+}
 @media (max-width: 620px) {
     #plotdetails, #menu  {width: 100%;}
     #plotdetails #plot-img img{width: 100%;}

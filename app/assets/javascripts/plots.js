@@ -127,24 +127,27 @@ this.buildMap = function(markers) {
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
     handler.getMap().setZoom(12);
+    
 
     //Function to hide plot details and resize map to full screen
     function hidePlotDetails() {
       if (!$('#plotdetails').hasClass("hidden")) {
         $('#map').animate({ width: $(window).width() }, 450, function() {
-            /* Run map resize as per Google API documentation following programatic resize of map div*/
-            google.maps.event.trigger(handler.getMap(), 'resize'); 
-            $("#map").css("width", "100%");
+          /* Run map resize as per Google API documentation following programatic resize of map div*/
+          google.maps.event.trigger(handler.getMap(), 'resize'); 
+          $("#map").css("width", "100%");
         });
         $('#plotdetails').animate({left: - 620}, 550).toggleClass( "hidden" );
       };
     };
+
 
     //Close infowindow on click anywhere on map and hide plot details
     google.maps.event.addListener(handler.getMap(), 'click', function() {
       handler.currentInfowindow().close();
       hidePlotDetails();
     });
+
 
     //Hide plot details div using swipe action on touchscreen
     $("#plotdetails").on("swipeleft",function(){
@@ -154,7 +157,6 @@ this.buildMap = function(markers) {
 
     /* Resize map div when window is resized and plot details are shown. Prevents
     unwanted white space*/
-    
     $(window).resize(function(){
       if (!$('#plotdetails').hasClass("hidden")) {
         $('#map').width($(window).width() - 215);
@@ -162,6 +164,7 @@ this.buildMap = function(markers) {
         google.maps.event.trigger(handler.getMap(), 'resize');
       };
     });
+
 
     
     // Change map style based on zoom level

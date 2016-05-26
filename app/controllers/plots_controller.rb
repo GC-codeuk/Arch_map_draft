@@ -11,7 +11,7 @@ class PlotsController < ApplicationController
       marker.title plot.title
       marker.infowindow render_to_string(:partial => "/plots/infobox.html.erb", :locals => { :plot => plot})
       marker.picture({
-       "url" => "https://db.tt/NVbNtQhV",
+       "url" => "https://db.tt/rfo3gxwa",
        "width" =>  32,
        "height" => 32})
       marker.json({ title: plot.title })
@@ -27,7 +27,7 @@ class PlotsController < ApplicationController
       marker.title plot.title
       marker.infowindow render_to_string(:partial => "/plots/infobox.html.erb", :locals => { :plot => plot})
       marker.picture({
-       "url" => "https://db.tt/NVbNtQhV",
+       "url" => "https://db.tt/rfo3gxwa",
        "width" =>  32,
        "height" => 32})
       marker.json({ title: plot.title })
