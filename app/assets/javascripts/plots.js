@@ -29,8 +29,8 @@ InfoBoxBuilder = (function(superClass) {
         });
     
         if ( $('#plotdetails').hasClass( "hidden" ) ) {   
-          $('#plotdetails').animate({left: 0}, 450).toggleClass( "hidden" );
-          $('#map').animate({ width: $(window).width() - 215 }, 550); // Shift map so infoxbox not hidden by plotdetails
+          $('#plotdetails').animate({left: 0}, 500).toggleClass( "hidden" );
+          $('#map').delay(150).animate({ width: $(window).width() - 215 }, 350); // Shift map so infoxbox not hidden by plotdetails
         };
         
     });
@@ -132,12 +132,12 @@ this.buildMap = function(markers) {
     //Function to hide plot details and resize map to full screen
     function hidePlotDetails() {
       if (!$('#plotdetails').hasClass("hidden")) {
-        $('#map').animate({ width: $(window).width() }, 450, function() {
+        $('#map').animate({ width: $(window).width() }, 350, function() {
           /* Run map resize as per Google API documentation following programatic resize of map div*/
           google.maps.event.trigger(handler.getMap(), 'resize'); 
           $("#map").css("width", "100%");
         });
-        $('#plotdetails').animate({left: - 620}, 550).toggleClass( "hidden" );
+        $('#plotdetails').animate({left: - 620}, 500).toggleClass( "hidden" );
       };
     };
 
