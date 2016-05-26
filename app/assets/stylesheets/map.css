@@ -57,6 +57,7 @@ html, body {
 	float: left;
 	padding: 5px 0px 0 15px;
     width: 165px;
+    overflow-y:hidden;
 }
 
 .marker_container h3 {
