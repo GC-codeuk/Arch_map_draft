@@ -96,7 +96,14 @@ var mapStyleZoomedOut = [
     { "lightness": -74 },
     { "color": "#2580cb" }
   ]
-  },     
+  },
+  {
+    "featureType": "poi.business",
+    "elementType": "labels",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  }    
 ];
 
  
@@ -131,7 +138,14 @@ var mapStyleZoomedIn = [
     { "lightness": -74 },
     { "color": "#2580cb" }
   ]
-  },     
+  },
+  {
+    "featureType": "poi.business",
+    "elementType": "labels",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  }   
 ];
 
 
