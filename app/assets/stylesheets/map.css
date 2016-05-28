@@ -27,7 +27,7 @@ html, body {
 
 .marker_container #infobox {
     margin-top: 8px;
-    background-color:rgba(20, 160, 146, 0.9);
+    background-color:rgba(20, 160, 146, 1);
     color:#FFF;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 12px;

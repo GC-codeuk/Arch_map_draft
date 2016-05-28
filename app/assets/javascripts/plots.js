@@ -50,7 +50,7 @@ InfoBoxBuilder = (function(superClass) {
       enableEventPropagation: false,
       boxStyle: {
         //width: "250px",
-        background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif') no-repeat"
+        background: "url('https://db.tt/qVR2aExf') no-repeat"
       },
       infoBoxClearance: new google.maps.Size(1, 1),
       closeBoxURL: ""
