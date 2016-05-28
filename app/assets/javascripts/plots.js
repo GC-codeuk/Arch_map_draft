@@ -64,7 +64,7 @@ InfoBoxBuilder = (function(superClass) {
 (Gmaps.Google.Builders.Marker);
 
 // Map style array settings
-var styles = [
+var mapStyleZoomedOut = [
 // Hue of map setting
   {
     stylers: [
@@ -99,6 +99,41 @@ var styles = [
   },     
 ];
 
+ 
+var mapStyleZoomedIn = [
+  {
+    stylers: [
+      { hue: "#00ffe6" },
+      { saturation: -20 }
+    ]
+  },
+ // Simplify road features
+  {
+    featureType: "road",
+    elementType: "geometry",
+    stylers: [
+      { lightness: 100 },
+      { visibility: "simplified" }
+    ]
+  },
+  // Remove street names
+  {
+    featureType: "road",
+    elementType: "labels",
+    stylers: [
+      { visibility: "on" }
+    ]
+  },
+  {
+  "featureType": "water",
+  "stylers": [
+    { "saturation": -6 },
+    { "lightness": -74 },
+    { "color": "#2580cb" }
+  ]
+  },     
+];
+
 
 
 this.buildMap = function(markers) {
@@ -115,7 +150,7 @@ this.buildMap = function(markers) {
       //center_on_plot: true,
       //auto_zoom: false,
       //zoom : 10,
-      styles: styles,
+      styles: mapStyleZoomedOut,
     },
     internal: {
       id: 'map',
@@ -148,7 +183,7 @@ this.buildMap = function(markers) {
       hidePlotDetails();
     });
 
-
+ 
     //Hide plot details div using swipe action on touchscreen
     $("#plotdetails").on("swipeleft",function(){
       hidePlotDetails();
@@ -166,46 +201,27 @@ this.buildMap = function(markers) {
     });
 
 
-    
-    // Change map style based on zoom level
-    /*var mapStyleZoomedOut = [
-      { 
-        featureType: "road",
-        elementType: "labels",
-        stylers: [
-          { visibility: "off" }
-        ] 
-      }]; 
-    var mapStyleZoomedIn = [
-      { 
-        featureType: "road",
-        elementType: "labels",
-        stylers: [
-          { visibility: "on" }
-        ] 
-      }];
-
+   /* Set map style based on zoom level so street names only appear when zoomed in */
     var styledMapOptions = {map: handler, name: 'minimial'}; 
-    var styledMapOptions2 = {map: handler, name: 'maximial'}; 
+    var styledMapOptions2 = {map: handler, name: 'maximial'};
 
     var sMapType = new google.maps.StyledMapType(mapStyleZoomedOut,styledMapOptions); 
-    handler.mapTypes.set('minimial', sMapType); 
-    handler.setMapTypeId('minimial'); 
+    handler.getMap().mapTypes.set('minimial', sMapType); 
+    handler.getMap().setMapTypeId('minimial');
 
     var sMapType2 = new google.maps.StyledMapType(mapStyleZoomedIn,styledMapOptions2); 
-    handler.mapTypes.set('maximial', sMapType2);
+    handler.getMap().mapTypes.set('maximial', sMapType2);
 
     google.maps.event.addListener(handler.getMap(), 'zoom_changed', function() { 
-      var zoomLevel = handler.getZoom();
-        alert(zoomLevel+', '+handler.getMapTypeId());
+      var zoomLevel = handler.getMap().getZoom();
       var sMapType;
-      // === IF Zoom Level <= 8 use mapStyleZoomedIn 
-      if(zoomLevel <=14)
-        handler.setMapTypeId('minimial');
-      // === If Zoom Level > 8 use mapStyleZoomedOut 
+      // === IF Zoom Level <= 16 use mapStyleZoomedIn 
+      if(zoomLevel <=16)
+        handler.getMap().setMapTypeId('minimial');
+      // === If Zoom Level > 16 use mapStyleZoomedOut 
       else
-        handler.setMapTypeId('maximial'); 
-    });*/
+        handler.getMap().setMapTypeId('maximial'); 
+    });
 
   });
 };
