@@ -76,3 +76,10 @@ html, body {
     bottom: 0;
     margin-bottom: 8px;
 }
+
+.location-icon {
+    position: absolute;
+    bottom: 30px;
+    right: 60px;
+    cursor: pointer;
+}
