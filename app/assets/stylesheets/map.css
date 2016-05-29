@@ -35,8 +35,8 @@ html, body {
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 5px;
-    -webkit-box-shadow: 5px 5px 5px #ccc;
-    box-shadow: 5px 5px 5px #999;
+    -webkit-box-shadow: 5px 5px 5px #aaa;
+    box-shadow: 5px 5px 5px #aaa;
     overflow: hidden;
     height: 100px;
     width: 300px;
@@ -77,9 +77,11 @@ html, body {
     margin-bottom: 8px;
 }
 
-.location-icon {
+#location-icon {
     position: absolute;
-    bottom: 30px;
-    right: 60px;
+    bottom: 24px;
+    right: 50px;
     cursor: pointer;
+    -webkit-box-shadow: 1px 1px 1px #ccc;
+    box-shadow: 1px 1px 1px #ccc;
 }

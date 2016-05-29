@@ -1,8 +1,10 @@
+<head>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4ykymJ5yCNhWlPIDV0Dr7-0tC57Abuog&region=GB" type="text/javascript"></script>
-<script src='https://cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js' type='text/javascript'></script>
-<script src='https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
 <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,700,100' rel='stylesheet' type='text/css'>
 <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+</head>
+<body>
 
   
 <%= render 'partials/menu' %>
@@ -15,7 +17,7 @@
 
 <img alt="Open" class="icon-menu" src="https://s3.amazonaws.com/codecademy-content/projects/z2d/stories/menu-black.svg" width="24px">
 
-<img alt="Open" class="location-icon" src="https://db.tt/N8i15vS2" width="24px">
+<img alt="Open" id="location-icon" class="off" src="https://db.tt/AeustLSb" width="28px">
 
 
 <script type="text/javascript">
@@ -23,4 +25,5 @@
   buildMap(<%=raw @hash.to_json %>);
 
 </script>
+</body>
  

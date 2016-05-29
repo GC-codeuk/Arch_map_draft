@@ -174,8 +174,8 @@ this.buildMap = function(markers) {
   function() {
     markers = handler.addMarkers(markers);
     handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
     handler.getMap().setZoom(12);
+    handler.getMap().setCenter({lat: 51.50742, lng: -0.127716});
     
 
     //Function to hide plot details and resize map to full screen
@@ -238,37 +238,33 @@ this.buildMap = function(markers) {
     });
 
 
-    /*Geolocation with HTML5*/
-    $('.location-icon').click(function() {
+    
+    /* Find geolocation when location icon is clicked */
+    $('#location-icon').click(function() {
+      if ($('#location-icon').hasClass("off")) {
+        $("#location-icon").attr("src","https://db.tt/ildt6X1d").toggleClass( "off" );  
+        GeoMarker = new GeolocationMarker();
+        GeoMarker.setCircleOptions({fillColor: '#999', strokeColor: '#fff'});
+        //GeoMarker.setMarkerOptions({icon: 'https://db.tt/HxfPDM2y', width: 8, height: 8, x:14, y:14});
 
-    // Try HTML5 geolocation.
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        var pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
+        google.maps.event.addListenerOnce(GeoMarker, 'position_changed', function() {
+          handler.getMap().setCenter(this.getPosition());
+          handler.getMap().setZoom(17);
+        });
 
-        //infoWindow.setPosition(pos);
-        //infoWindow.setContent('Location found.');
-        handler.getMap().setCenter(pos);
-        handler.getMap().setZoom(17);
-      }, function() {
-        handleLocationError(true, infoWindow, map.getCenter());
-      });
-    } else {
-      // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter());
-    }
-  
+        google.maps.event.addListener(GeoMarker, 'geolocation_error', function(e) {
+          alert('There was an error obtaining your position. Message: ' + e.message);
+        });
 
-    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-      infoWindow.setPosition(pos);
-      infoWindow.setContent(browserHasGeolocation ?
-                            'Error: The Geolocation service failed.' :
-                            'Error: Your browser doesn\'t support geolocation.');
-    }
-  });
+        GeoMarker.setMap(handler.getMap());
+      }
+      else {
+        GeoMarker.setMap(null);
+        $("#location-icon").attr("src","https://db.tt/AeustLSb").toggleClass( "off" );
+      };
+        
+    });
+
 
   });
 };
