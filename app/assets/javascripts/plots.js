@@ -242,7 +242,7 @@ this.buildMap = function(markers) {
     /* Find geolocation when location icon is clicked */
     $('#location-icon').click(function() {
       if ($('#location-icon').hasClass("off")) {
-        $("#location-icon").attr("src","https://db.tt/ildt6X1d").toggleClass( "off" );  
+        $("#location-icon").attr("src","https://db.tt/dftJzfWw").toggleClass( "off" );  
         GeoMarker = new GeolocationMarker();
         GeoMarker.setCircleOptions({fillColor: '#999', strokeColor: '#fff'});
         //GeoMarker.setMarkerOptions({icon: 'https://db.tt/HxfPDM2y', width: 8, height: 8, x:14, y:14});
