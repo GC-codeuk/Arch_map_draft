@@ -11,12 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
-
 //= require underscore
 //= require gmaps/google
 //= require markerclusterer.min
 //= require geolocation-marker
 //= require infobox_packed
+//= require turbolinks
 //= require_tree .

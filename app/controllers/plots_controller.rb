@@ -97,6 +97,10 @@ class PlotsController < ApplicationController
     end
   end
 
+  def buildings
+    @plots = Plot.all
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_plot

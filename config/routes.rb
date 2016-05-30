@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :plots do
     get :plotdetails, :on => :member
   end
+  get "/pages/:page" => "pages#show"
+  get "/buildings" => "plots#buildings"
 
   #resources :plots 
   # The priority is based upon order of creation: first created -> highest priority.

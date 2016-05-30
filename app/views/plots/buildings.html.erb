@@ -1,0 +1,25 @@
+
+<%= render 'partials/menu' %>
+
+<img alt="Open" class="icon-menu" src="https://s3.amazonaws.com/codecademy-content/projects/z2d/stories/menu-black.svg" width="24px">
+
+<h1>Buildings</h1>
+
+<div class='row'>
+
+<% @plots.each do |plot| %> 
+  <div class="col-md-3">
+    <%= link_to(plot) do %>
+      <div class="thumbnail">
+        <img src="<%= plot.img_link %>">
+        <div class="caption">
+          <h3 class="title"> <%= plot.title %> </h3>
+          <p class="artist"> <%= plot.architect.name %> </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
+
+
+</div>

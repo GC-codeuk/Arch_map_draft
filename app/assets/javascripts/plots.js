@@ -2,6 +2,8 @@ var InfoBoxBuilder,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
 
+
+
 InfoBoxBuilder = (function(superClass) {
   extend(InfoBoxBuilder, superClass);
 
@@ -61,7 +63,11 @@ InfoBoxBuilder = (function(superClass) {
 
 })
 
+
+
 (Gmaps.Google.Builders.Marker);
+
+
 
 // Map style array settings
 var mapStyleZoomedOut = [
@@ -163,7 +169,6 @@ this.buildMap = function(markers) {
       clickableIcons: false,
       //center_on_plot: true,
       //auto_zoom: false,
-      //zoom : 10,
       styles: mapStyleZoomedOut,
     },
     internal: {
@@ -267,4 +272,5 @@ this.buildMap = function(markers) {
 
 
   });
+
 };
