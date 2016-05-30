@@ -30,8 +30,8 @@ InfoBoxBuilder = (function(superClass) {
           }
         });
     
-        if ( $('#plotdetails').hasClass( "hidden" ) ) {   
-          $('#plotdetails').animate({left: 0}, 500).toggleClass( "hidden" );
+        if ( $('#plotdetails').hasClass( "off-screen" ) ) {   
+          $('#plotdetails').animate({left: 0}, 500).toggleClass( "off-screen" );
           $('#map').delay(150).animate({ width: $(window).width() - 215 }, 350); // Shift map so infoxbox not hidden by plotdetails
         };
         
@@ -185,13 +185,13 @@ this.buildMap = function(markers) {
 
     //Function to hide plot details and resize map to full screen
     function hidePlotDetails() {
-      if (!$('#plotdetails').hasClass("hidden")) {
+      if (!$('#plotdetails').hasClass("off-screen")) {
         $('#map').animate({ width: $(window).width() }, 350, function() {
           /* Run map resize as per Google API documentation following programatic resize of map div*/
           google.maps.event.trigger(handler.getMap(), 'resize'); 
           $("#map").css("width", "100%");
         });
-        $('#plotdetails').animate({left: - 620}, 500).toggleClass( "hidden" );
+        $('#plotdetails').animate({left: - 620}, 500).toggleClass( "off-screen" );
       };
     };
 
@@ -212,7 +212,7 @@ this.buildMap = function(markers) {
     /* Resize map div when window is resized and plot details are shown. Prevents
     unwanted white space*/
     $(window).resize(function(){
-      if (!$('#plotdetails').hasClass("hidden")) {
+      if (!$('#plotdetails').hasClass("off-screen")) {
         $('#map').width($(window).width() - 215);
         /* Resize as per Google API documentation following programatic resize of map div*/
         google.maps.event.trigger(handler.getMap(), 'resize');
