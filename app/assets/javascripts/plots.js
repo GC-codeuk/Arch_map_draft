@@ -33,7 +33,7 @@ InfoBoxBuilder = (function(superClass) {
         if ( $('#plotdetails').hasClass( "off-screen" ) ) {
           //$('.header').animate({marginLeft: 400}, 500);
           $('#plotdetails').animate({left: 0}, 500).toggleClass( "off-screen" );
-          $('#buildings').animate({marginLeft: $('#plotdetails').width()}, 500);
+          $("#buildings").css("margin-left", "calc(33%");
           $('#map').delay(150).animate({ width: $(window).width() - 215 }, 350); // Shift map so infoxbox not hidden by plotdetails
         };
         
