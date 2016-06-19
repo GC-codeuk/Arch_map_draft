@@ -1,0 +1,21 @@
+<div id='buildings' style="display:none" class="fix-right-top">
+<div>
+	  <h2>Buildings</h2>
+	  <div>
+	    <% @plots.order('title').each do |plot| %> 
+	      <div class="building-tile">
+	        <%= link_to plotdetails_plot_path(:id => plot.id),  :remote => true do %>
+	          <div class="plot">
+	            <img src="<%= plot.img_link %>">
+	            <div class="caption">
+	              <h3 class="title"> <%= plot.title %> </h3>
+	              <p class="name"> <%= plot.architect.name %> </p>
+	            </div>
+	          </div>
+	        <% end %>
+	      </div>
+	    <% end %>
+
+	  </div>
+	</div>
+</div>

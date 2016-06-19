@@ -12,7 +12,32 @@
 </head>
 <body>
 
+<!-- Header section -->
+<div class='header'>
+
+	<img alt="Menu" class="icon-menu" src="https://s3.amazonaws.com/codecademy-content/projects/z2d/stories/menu-black.svg" width="24px">
+
+	<div id="map-plots-btn">
+		<img src="https://dl.dropboxusercontent.com/u/22287966/arch%20app/icon.svg"/>
+		<img src="https://dl.dropboxusercontent.com/u/22287966/arch%20app/Maps-Map-icon.png" style="display:none"/>
+	</div>
+
+
+</div>
+
+<!-- Menu partial -->
+<%= render 'partials/menu' %>
+
+<!-- Plot Details partial -->
+<div id="plotdetails" class="off-screen"></div>
+
+<!-- Buildings partial -->
+<%= render 'partials/buildings' %>
+
+
 <%= yield %>
+
+
 
 </body>
 </html>

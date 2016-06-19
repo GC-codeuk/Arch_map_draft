@@ -1,0 +1,46 @@
+/* menu */
+
+.icon-menu {
+    /*position: absolute;
+    top: 20px;
+    left: 20px;*/
+    cursor: pointer;
+
+    margin: 20px 20px 20px 20px;
+}
+
+.icon-close, #plot-close-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+#map-plots-btn {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+	width: 28px;
+	height: 28px;
+
+}
+
+#map-plots-btn img {
+	width: 28px;
+	height: 28px;
+
+}
+
+.header {
+    width: 100%;
+    z-index: 4;
+    display: inline-block;
+    background: rgba(255, 255, 255, .5);
+    position: absolute;
+
+}
+
+.header h1 {
+    display: inline-block;
+    margin-left: 20px;
+}

@@ -30,8 +30,10 @@ InfoBoxBuilder = (function(superClass) {
           }
         });
     
-        if ( $('#plotdetails').hasClass( "off-screen" ) ) {   
+        if ( $('#plotdetails').hasClass( "off-screen" ) ) {
+          //$('.header').animate({marginLeft: 400}, 500);
           $('#plotdetails').animate({left: 0}, 500).toggleClass( "off-screen" );
+          $('#buildings').animate({marginLeft: $('#plotdetails').width()}, 500);
           $('#map').delay(150).animate({ width: $(window).width() - 215 }, 350); // Shift map so infoxbox not hidden by plotdetails
         };
         
@@ -181,6 +183,28 @@ this.buildMap = function(markers) {
     handler.bounds.extendWith(markers);
     handler.getMap().setZoom(12);
     handler.getMap().setCenter({lat: 51.50742, lng: -0.127716});
+
+
+    //Function to show plot details if plot in buildings partial is clicked
+    function showPlotDetails() {
+      if ($('#plotdetails').hasClass("off-screen")) {
+          //$('.header').animate({marginLeft: 400}, 500);
+          $('#plotdetails').animate({left: 0}, 500).toggleClass( "off-screen" );
+          $("#buildings").css("margin-left", "calc(33%");
+          $('#map').delay(150).animate({ width: $(window).width() - 215 }, 350); // Shift map so infoxbox not hidden by plotdetails
+      };
+    };
+
+
+    //Show plots partial when building in list clicked
+    if ($('#plotdetails').hasClass("off-screen")) {
+      $('.plot').click(function() {
+        showPlotDetails();
+      });
+    };
+
+
+
     
 
     //Function to hide plot details and resize map to full screen
@@ -191,9 +215,15 @@ this.buildMap = function(markers) {
           google.maps.event.trigger(handler.getMap(), 'resize'); 
           $("#map").css("width", "100%");
         });
-        $('#plotdetails').animate({left: - 620}, 500).toggleClass( "off-screen" );
+        //$('.header').animate({marginLeft: 0}, 500);
+        $("#buildings").css("margin-left", "auto");
+        $('#plotdetails').animate({left: - $('#plotdetails').width()}, 500).toggleClass( "off-screen" );
       };
     };
+
+    $('#plotdetails').on('click','#plot-close-icon',function(){
+      hidePlotDetails();
+    });
 
 
     //Close infowindow on click anywhere on map and hide plot details

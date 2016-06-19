@@ -1,18 +1,4 @@
-/* menu */
 
-.icon-menu {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    cursor: pointer;
-}
-
-.icon-close {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    cursor: pointer;
-}
 
 /*Plot Details Partial */
 
@@ -23,11 +9,12 @@
     background-color:rgba(20, 160, 146, 1);
     font-family: 'Josefin Sans', sans-serif;
     float: left;
-    width: 400px;
+    width: calc(33%);
+    /*min-width: 300px;*/
     color: #fff;
     z-index: 5;
     position: fixed;
-    left: -620px;
+    left: calc(-33%);
     height: 100%;
     -webkit-box-shadow:  -5px 0px 4px 0px rgba(0, 0, 0, 0.2);
         moz-box-shadow:  -5px 0px 4px 0px rgba(0, 0, 0, 0.2);
@@ -35,8 +22,12 @@
             box-shadow:  -5px 0px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
+#menu {
+    z-index: 6;
+}
+
 #plotdetails #plot-img img{
-    width: 400px;
+    width: 100%;
     display: block;
 }
 
@@ -63,6 +54,6 @@
     padding: 10px 0 0 0;  
 }
 @media (max-width: 620px) {
-    #plotdetails, #menu  {width: 100%;}
+    #plotdetails, #menu {width: 100%; left: calc(-100%);}
     #plotdetails #plot-img img{width: 100%;}
 }
